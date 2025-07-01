@@ -283,13 +283,14 @@ const ImageLightbox: React.FC<{
 };
 
 const Projects: React.FC = () => {
-  const [filter, setFilter] = useState<'all' | 'featured' | 'web' | 'mobile'>('featured');
+  const [filter, setFilter] = useState<'all' | 'featured' | 'web' | 'others'>('featured');
   
   const projects: ProjectType[] = [
+    // PROJEK 1
     {
-      title: "Sistem Kependudukan RW.13 Tegalsari 2024 (Inactive Web)",
+      title: "Sistem Kependudukan RW.13 Tegalsari (Inactive) | 2024",
       description: "Sistem manajemen data penduduk yang komprehensif dengan fitur entry data, pelaporan, dan analitik. Sistem ini memungkinkan pengelolaan data penduduk secara digital dengan interface yang user-friendly dan dashboard analytics yang informatif. Termasuk entri kos dan warga kos, warga asli, dan pendatang, sampai pengelolaan ketua RT dan RW",
-      shortDescription: "Sistem manajemen data penduduk berbasis web dengan analytics. Termasuk entri kos dan warga kos, warga asli, dan pendatang, sampai pengelolaan ketua RT dan RW",
+      shortDescription: "Sistem manajemen data penduduk berbasis web dengan analytics. Termasuk entri kos dan warga kos, warga asli, dan pendatang, sampai pengelolaan ketua RT dan RW.",
       images: [
         "/images/population1.png",
         "/images/population2.png",
@@ -306,10 +307,11 @@ const Projects: React.FC = () => {
       highlights: ["Multi-user Management", "Data Export Features"],
       status: 'inactive'
     },
+    // PROJEK 2
     {
-      title: "Palmer Jateng Platform",
+      title: "Palmer Jateng Platform (Web) | 2024",
       description: "Platform digital untuk Palmer Jateng dengan interface web dan mobile. Platform ini menyediakan layanan informasi, reservasi, dan berbagai fitur untuk mendukung aktivitas Palmer di Jawa Tengah. Termasuk system booking, pengecekan kamar, integrasi payment dengan midtrans, dll.",
-      shortDescription: "Platform digital PMI Jateng multi-platform. Termasuk system booking, pengecekan kamar, integrasi payment dengan midtrans, dll.",
+      shortDescription: "Platform digital PMI Jateng multi-platform. Termasuk system booking, pengecekan kamar, serta kami mengintegrasikan payment dengan midtrans, dll.",
       images: [
         "/images/palmer1.png",
         "/images/palmer2.png",
@@ -318,7 +320,51 @@ const Projects: React.FC = () => {
         "/images/palmer5.png",
         "/images/palmer6.png",
       ],
-      technologies: ["PHP", "Laravel", "Filament", "MySQL", "Flutter"],
+      technologies: ["PHP", "Laravel", "Filament", "MySQL", "Flutter", "midtrans"],
+      demoLink: "https://palmerinjateng.id/",
+      githubLink: "#",
+      featured: true,
+      date: "2024",
+      category: "Full Stack",
+      highlights: ["Cross-platform", "Login System", "Booking System"],
+      status: 'maintained'
+    },
+    // PROJEK 3
+    {
+      title: "Inventory & Admin Panel Pusdiklat PMI Booking System (web) | 2024",
+      description: "Membangun system inventoris dan admin panel responsif menggunakan filament untuk memonitor inventory booking, termasuk autentikasi berbasis JWT, mendesain API, dll.",
+      shortDescription: "Membangun system inventoris dan admin panel responsif menggunakan filament untuk memonitor inventory booking, termasuk autentikasi berbasis JWT, mendesain API, dll.",
+      images: [
+        "/images/adminpalmer1.png",
+        "/images/adminpalmer2.png",
+        "/images/adminpalmer3.png",
+        "/images/adminpalmer4.png",
+        "/images/adminpalmer5.png",
+        "/images/adminpalmer6.png",
+      ],
+      technologies: ["PHP", "Laravel", "Filament", "MySQL", "Flutter", "midtrans"],
+      demoLink: "https://palmerinjateng.id/",
+      githubLink: "#",
+      featured: true,
+      date: "2024",
+      category: "Full Stack",
+      highlights: ["Cross-platform", "Login System", "Booking System"],
+      status: 'maintained'
+    },
+    // PROJEK 4
+    {
+      title: "Matching Fund Floodsense 2024 (web) | 2024",
+      description: "Platform digital untuk Palmer Jateng dengan interface web dan mobile. Platform ini menyediakan layanan informasi, reservasi, dan berbagai fitur untuk mendukung aktivitas Palmer di Jawa Tengah. Termasuk system booking, pengecekan kamar, integrasi payment dengan midtrans, dll.",
+      shortDescription: "Platform digital PMI Jateng multi-platform. Termasuk system booking, pengecekan kamar, serta kami mengintegrasikan payment dengan midtrans, dll.",
+      images: [
+        "/images/floodsense1.png",
+        "/images/floodsense2.png",
+        "/images/floodsense3.png",
+        "/images/floodsense4.png",
+        "/images/floodsense5.png",
+        "/images/floodsense6.png",
+      ],
+      technologies: ["PHP", "Laravel", "Filament", "MySQL", "Flutter", "midtrans"],
       demoLink: "https://palmerinjateng.id/",
       githubLink: "#",
       featured: true,
@@ -359,7 +405,7 @@ const Projects: React.FC = () => {
           transition={{ delay: 0.2 }}
         >
           <div className="bg-white dark:bg-gray-800 p-2 rounded-xl shadow-lg border border-gray-200 dark:border-gray-700">
-            {['featured', 'all', 'web', 'mobile'].map((filterOption) => (
+            {['featured', 'all', 'web', 'others'].map((filterOption) => (
               <button
                 key={filterOption}
                 onClick={() => setFilter(filterOption as any)}
@@ -371,7 +417,7 @@ const Projects: React.FC = () => {
               >
                 {filterOption === 'featured' ? 'Featured' : 
                  filterOption === 'all' ? 'Semua' :
-                 filterOption === 'web' ? 'Web Dev' : 'Mobile'}
+                 filterOption === 'web' ? 'Web Dev' : 'Others'}
               </button>
             ))}
           </div>
