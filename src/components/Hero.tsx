@@ -7,8 +7,8 @@ import LazyImage from './LazyImage';
 const Hero: React.FC = () => {
   const handleDownloadCV = () => {
     const link = document.createElement('a');
-    link.href = '/documents/CV-INDO.pdf';
-    link.download = 'Iqbal_Bagus_CV.pdf';
+    link.href = '/documents/Moh Iqbal Bagus P H - POLITEKNIK NEGERI SEMARANG.pdf';
+    link.download = 'Moh Iqbal Bagus P H - POLITEKNIK NEGERI SEMARANG.pdf';
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
