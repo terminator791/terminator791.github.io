@@ -111,14 +111,14 @@ const Footer: React.FC = () => {
                 className="text-gray-400"
                 whileHover={{ x: 5 }}
               >
-                Jember, Indonesia
+                Semarang, Indonesia
               </motion.p>
             </div>
             <div className="flex space-x-4 pt-2">
               {[
                 { icon: Github, href: "https://github.com/terminator791", label: "GitHub" },
                 { icon: Linkedin, href: "#", label: "LinkedIn" },
-                { icon: Mail, href: "mailto:iqbalbagus@example.com", label: "Email" }
+                { icon: Mail, href: "mailto:iqbalbagus057@gmail.com", label: "Email" }
               ].map((social) => (
                 <motion.a
                   key={social.label}

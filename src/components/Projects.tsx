@@ -325,7 +325,7 @@ const Projects: React.FC = () => {
       githubLink: "#",
       featured: true,
       date: "2024",
-      category: "Full Stack",
+      category: "Web Development",
       highlights: ["Cross-platform", "Login System", "Booking System"],
       status: 'maintained'
     },
@@ -345,20 +345,20 @@ const Projects: React.FC = () => {
         "/images/adminpalmer8.png",
         "/images/adminpalmer9.png",
       ],
-      technologies: ["PHP", "Laravel", "Filament", "MySQL", "Flutter", "midtrans"],
-      demoLink: "https://palmerinjateng.id/",
+      technologies: ["PHP", "Laravel", "Filament", "MySQL", "JWT", "OAUTH"],
+      demoLink: "#",
       githubLink: "#",
       featured: true,
       date: "2024",
-      category: "Full Stack",
-      highlights: ["Cross-platform", "Login System", "Booking System"],
+      category: "Web Development",
+      highlights: ["Inventory System", "Admin Panel", "JWT Auth", "API Design", "Tracking Room"],
       status: 'maintained'
     },
     // PROJEK 4
     {
       title: "Matching Fund Floodsense 2024 (web) | 2024",
-      description: "Platform digital untuk Palmer Jateng dengan interface web dan mobile. Platform ini menyediakan layanan informasi, reservasi, dan berbagai fitur untuk mendukung aktivitas Palmer di Jawa Tengah. Termasuk system booking, pengecekan kamar, integrasi payment dengan midtrans, dll.",
-      shortDescription: "Platform digital PMI Jateng multi-platform. Termasuk system booking, pengecekan kamar, serta kami mengintegrasikan payment dengan midtrans, dll.",
+      description: "Membangun admin panel responsive menggunakan filament untuk memonitor banjir dari berbagai kota.",
+      shortDescription: "Membangun admin panel responsive menggunakan filament untuk memonitor banjir dari berbagai kota.",
       images: [
         "/images/floodsense1.png",
         "/images/floodsense2.png",
@@ -366,15 +366,103 @@ const Projects: React.FC = () => {
         "/images/floodsense4.png",
         "/images/floodsense5.png",
         "/images/floodsense6.png",
+        "/images/floodsense7.png",
+        "/images/floodsense8.png",
       ],
       technologies: ["PHP", "Laravel", "Filament", "MySQL", "Flutter", "midtrans"],
       demoLink: "https://palmerinjateng.id/",
       githubLink: "#",
       featured: true,
       date: "2024",
-      category: "Full Stack",
+      category: "Web Development",
       highlights: ["Cross-platform", "Login System", "Booking System"],
       status: 'maintained'
+    },
+    // PROJEK 5
+    {
+      title: "Sistem Enterprise Mitra Kampus menggunakan Odoo 2025 (web) | 2025",
+      description: "Membuat sistem enterprise dengan odoo untuk inventoris, pengelolaan karyawan, barang, kehadiran, serta e-commerce.",
+      shortDescription: "Membuat sistem enterprise dengan odoo untuk inventoris, pengelolaan karyawan, barang, kehadiran, serta e-commerce.",
+      images: [
+        "/images/odoo1.png",
+        "/images/odoo2.png",
+        "/images/odoo3.png",
+        "/images/odoo4.jpeg",
+        "/images/odoo5.png",
+        "/images/odoo6.png",
+        "/images/odoo7.png",
+      ],
+      technologies: ["Odoo", "Postgre", "Cloud"],
+      demoLink: "https://enterprise.trk3a.my.id/",
+      githubLink: "#",
+      featured: false,
+      date: "2025",
+      category: "Web Development",
+      highlights: ["Enterprise System", "Odoo Integration", "PostgreSQL"],
+      status: 'maintained'
+    },
+    // PROJEK 6
+    {
+      title: "IOT monitoring sensor (IOT) | 2024",
+      description: "Membuat aplikasi berbasis react native untuk memonitoring sensor seperti suhu, kelembapan dll. Aplikasi ini menggunakan teknologi IOT untuk mengumpulkan data dari sensor dan menampilkannya secara real-time.",
+      shortDescription: "Membuat aplikasi berbasis react native untuk memonitoring sensor seperti suhu, kelembapan dll. Aplikasi ini menggunakan teknologi IOT untuk mengumpulkan data dari sensor dan menampilkannya secara real-time.",
+      images: [
+        "/images/iot1.png",
+        "/images/iot2.png",
+
+      ],
+      technologies: ["React Native", "Firebase"],
+      demoLink: "#",
+      githubLink: "https://github.com/terminator791/ESIOT32",
+      featured: false,
+      date: "2024",
+      category: "others",
+      highlights: ["Real-time Monitoring", "Sensor Data Visualization", "Cross-platform"],
+      status: 'completed'
+    },
+    // PROJEK 7
+    {
+      title: "Facebook Redesign (design) | 2023",
+      description: "Mendesain ulang facebook untuk mengoptimalkan pengalaman pengguna lebih baik dan menambah sedikit detail. Desain ini berfokus pada kesederhanaan, kemudahan navigasi, dan estetika modern.",
+      shortDescription: "Mendesain ulang facebook untuk mengoptimalkan pengalaman pengguna lebih baik dan menambah sedikit detail. Desain ini berfokus pada kesederhanaan, kemudahan navigasi, dan estetika modern.",
+      images: [
+        "/images/design1.png",
+        "/images/design2.png",
+        "/images/design3.png",
+        "/images/design4.png",
+        "/images/design5.png",
+
+      ],
+      technologies: ["Figma", "UI/UX Design"],
+      demoLink: "https://www.figma.com/design/YeWsjNjAbEHbQ6X0az5xC0/Tugas-Figma?m=auto&t=kVmUfhax8NLl5455-1",
+      githubLink: "",
+      featured: false,
+      date: "2023",
+      category: "others",
+      highlights: ["UI/UX Design", "Figma Prototyping", "User-Centric Design"],
+      status: 'completed'
+    },
+    // PROJEK 8
+    {
+      title: "“Petualangan Finley” Adventure Game (game)  | 2024",
+      description: "Membuat logic system dalam game Petualagan Finley, termasuk save system, damage system, dan mekanik game. Game ini adalah game petualangan yang mengajak pemain untuk menjelajahi dunia fantasi dengan berbagai tantangan dan misi.",
+      shortDescription: "Membuat logic system dalam game Petualagan Finley, termasuk save system, damage system, dan mekanik game. Game ini adalah game petualangan yang mengajak pemain untuk menjelajahi dunia fantasi dengan berbagai tantangan dan misi.",
+      images: [
+        "/images/game1.png",
+        "/images/game2.png",
+        "/images/game3.png",
+        "/images/game4.png",
+        "/images/game5.png",
+
+      ],
+      technologies: ["Unity", "C#", "Game Development"],
+      demoLink: "https://www.figma.com/design/YeWsjNjAbEHbQ6X0az5xC0/Tugas-Figma?m=auto&t=kVmUfhax8NLl5455-1",
+      githubLink: "",
+      featured: false,
+      date: "2024",
+      category: "others",
+      highlights: ["Game Logic System", "Save System", "Damage System", "Adventure Mechanics"],
+      status: 'completed'
     },
   ];
 
@@ -520,14 +608,14 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
   return (
     <>
       <motion.div
-        className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl overflow-hidden border border-gray-100 dark:border-gray-700 group"
+        className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl overflow-hidden border border-gray-100 dark:border-gray-700 group h-full"
         whileHover={{ 
           scale: 1.02,
           boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25)"
         }}
         onHoverStart={() => setIsHovered(true)}
         onHoverEnd={() => setIsHovered(false)}
-      >
+      >   
         {/* Enhanced Image Carousel */}
         <div className="relative overflow-hidden bg-gray-100 dark:bg-gray-700">
           <div className="relative h-72">
