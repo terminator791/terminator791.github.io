@@ -7,7 +7,6 @@ import ProgressBar from './components/ProgressBar';
 import BackToTop from './components/BackToTop';
 import CursorFollower from './components/CursorFollower';
 import BackgroundAnimations from './components/BackgroundAnimations';
-import { SpeedInsights } from "@vercel/speed-insights/next"
 
 // Lazy load components for better performance
 const About = lazy(() => import('./components/About'));
@@ -32,8 +31,6 @@ const SectionLoader = () => (
 function App() {
   const [darkMode, setDarkMode] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
-
-  <SpeedInsights/>
 
   useEffect(() => {
     // Check for saved theme preference or default to light mode
