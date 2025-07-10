@@ -117,11 +117,6 @@ function App() {
         transition={{ duration: 0.5 }}
         className="min-h-screen bg-white dark:bg-gray-900 transition-colors duration-500"
       >
-        {/* Background Animations */}
-        <BackgroundAnimations />
-        
-        {/* Custom Cursor */}
-        <CursorFollower />
         
         {/* Progress Bar */}
         <ProgressBar />
