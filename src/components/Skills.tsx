@@ -17,7 +17,7 @@ const Skills: React.FC = () => {
         { name: "JavaScript", level: "Intermediate", color: "bg-yellow-100 dark:bg-yellow-900 text-yellow-800 dark:text-yellow-200" },
         { name: "TypeScript", level: "Learning", color: "bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200" },
         { name: "Python", level: "Intermediate", color: "bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200" },
-        { name: "Java", level: "Learning", color: "bg-red-100 dark:bg-red-900 text-red-800 dark:text-red-200" },
+        { name: "Golang", level: "Learning", color: "bg-red-100 dark:bg-red-900 text-red-800 dark:text-red-200" },
         { name: "PHP", level: "Intermediate", color: "bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200" },
       ]
     },
@@ -58,6 +58,7 @@ const Skills: React.FC = () => {
       icon: <Smartphone className="w-6 h-6" />,
       skills: [
         { name: "Flutter", level: "Learning", color: "bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200" },
+        { name: "React Native", level: "Learning", color: "bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200" }
       ]
     },
     {
@@ -65,7 +66,8 @@ const Skills: React.FC = () => {
       icon: <Cloud className="w-6 h-6" />,
       skills: [
         { name: "AWS", level: "Learning", color: "bg-yellow-100 dark:bg-yellow-900 text-yellow-800 dark:text-yellow-200" },
-        { name: "Netlify", level: "Learning", color: "bg-teal-100 dark:bg-teal-900 text-teal-800 dark:text-teal-200" }
+        { name: "Netlify", level: "Learning", color: "bg-teal-100 dark:bg-teal-900 text-teal-800 dark:text-teal-200" },
+        { name: "Vercel", level: "Learning", color: "bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200"}
       ]
     }
   ];

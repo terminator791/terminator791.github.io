@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { useForm } from 'react-hook-form';
 import toast, { Toaster } from 'react-hot-toast';
-import { Mail, Phone, MapPin, Send, Github, Linkedin, Twitter, CheckCircle, AlertCircle, Loader } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, Github, Linkedin, Instagram, CheckCircle, AlertCircle, Loader } from 'lucide-react';
 import emailjs from '@emailjs/browser';
 
 interface FormData {
@@ -219,8 +219,8 @@ const Contact: React.FC = () => {
               <div className="flex gap-4">
                 {[
                   { icon: Github, href: "https://github.com/terminator791", label: "GitHub", color: "hover:bg-gray-100 dark:hover:bg-gray-700" },
-                  { icon: Linkedin, href: "#", label: "LinkedIn", color: "hover:bg-blue-100 dark:hover:bg-blue-900" },
-                  { icon: Twitter, href: "#", label: "Twitter", color: "hover:bg-blue-100 dark:hover:bg-blue-900" }
+                  { icon: Linkedin, href: "https://linkedin.com/in/moh-iqbal-bagus-prasetyo-hutomo-65aa171b7", label: "LinkedIn", color: "hover:bg-blue-100 dark:hover:bg-blue-900" },
+                  { icon: Instagram, href: "https://instagram.com/iqbaall.ph", label: "Instagram", color: "hover:bg-blue-100 dark:hover:bg-blue-900" }
                 ].map((social, index) => (
                   <motion.a
                     key={social.label}

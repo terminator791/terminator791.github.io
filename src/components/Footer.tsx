@@ -92,11 +92,11 @@ const Footer: React.FC = () => {
             <h4 className="text-lg font-semibold">Get in Touch</h4>
             <div className="space-y-2">
               <motion.a
-                href="mailto:iqbalbagus@example.com"
+                href="mailto:iqbalbagus057@gmail.com"
                 className="text-gray-400 hover:text-white transition-colors block"
                 whileHover={{ x: 5 }}
               >
-                iqbalbagus@example.com
+                iqbalbagus057@gmail.com
               </motion.a>
               <motion.a
                 href="https://wa.me/+62895423630500"

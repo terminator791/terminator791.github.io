@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Github, Linkedin, Mail, Download, ExternalLink, Code, Sparkles } from 'lucide-react';
+import { Github, Linkedin, Mail, Download, ExternalLink, Code, Sparkles, PhoneCall } from 'lucide-react';
 import TypewriterText from './TypewriterText';
 import LazyImage from './LazyImage';
 
@@ -217,8 +217,9 @@ const Hero: React.FC = () => {
         >
           {[
             { icon: Github, href: "https://github.com/terminator791", label: "GitHub", color: "hover:text-gray-900 dark:hover:text-white" },
-            { icon: Linkedin, href: "#", label: "LinkedIn", color: "hover:text-blue-600" },
-            { icon: Mail, href: "mailto:moh.43322016@gmail.com", label: "Email", color: "hover:text-red-500" }
+            { icon: Linkedin, href: "https://linkedin.com/in/moh-iqbal-bagus-prasetyo-hutomo-65aa171b7", label: "LinkedIn", color: "hover:text-blue-600" },
+            { icon: Mail, href: "mailto:moh.43322016@gmail.com", label: "Email", color: "hover:text-red-500" },
+            { icon: PhoneCall, href: "https://wa.me/+62895423630500", label: "Phone", color: "hover:text-green-500" }
           ].map((social, index) => (
             <motion.a
               key={social.label}
