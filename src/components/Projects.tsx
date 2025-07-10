@@ -370,7 +370,7 @@ const Projects: React.FC = () => {
         "/images/floodsense8.png",
       ],
       technologies: ["PHP", "Laravel", "Filament", "MySQL", "Flutter", "midtrans"],
-      demoLink: "https://cerdaspantaubanjir.my.id",
+      demoLink: "",
       githubLink: "#",
       featured: true,
       date: "2024",
