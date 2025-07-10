@@ -12,7 +12,7 @@
     font-family: 'Inter', system-ui, -apple-system, sans-serif;
     font-feature-settings: 'cv11', 'ss01';
     font-variation-settings: 'opsz' 32;
-    cursor: none; /* Hide default cursor for custom cursor */
+
   }
 
   .font-mono {
@@ -210,10 +210,10 @@ html {
   @apply animate-none;
 }
 
-/* Custom cursor styles */
+/* Custom cursor styles
 * {
   cursor: none !important;
-}
+} */
 
 /* Gallery specific styles */
 .gallery-masonry {
