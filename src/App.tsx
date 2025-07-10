@@ -33,6 +33,8 @@ function App() {
   const [darkMode, setDarkMode] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
 
+  <SpeedInsights/>
+
   useEffect(() => {
     // Check for saved theme preference or default to light mode
     const savedTheme = localStorage.getItem('theme');
@@ -121,8 +123,6 @@ function App() {
         
         {/* Progress Bar */}
         <ProgressBar />
-
-        <SpeedInsights/>
         
         {/* Toast Notifications */}
         <Toaster 
