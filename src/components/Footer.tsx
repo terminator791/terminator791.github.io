@@ -68,6 +68,7 @@ const Footer: React.FC = () => {
                 { id: 'studies', label: 'Education' },
                 { id: 'skills', label: 'Skills' },
                 { id: 'projects', label: 'Projects' },
+                { id: 'gallery', label: 'Gallery' },
                 { id: 'contact', label: 'Contact' }
               ].map((link) => (
                 <motion.button

@@ -5,12 +5,15 @@ import Header from './components/Header';
 import Hero from './components/Hero';
 import ProgressBar from './components/ProgressBar';
 import BackToTop from './components/BackToTop';
+import CursorFollower from './components/CursorFollower';
+import BackgroundAnimations from './components/BackgroundAnimations';
 
 // Lazy load components for better performance
 const About = lazy(() => import('./components/About'));
 const Studies = lazy(() => import('./components/Studies'));
 const Skills = lazy(() => import('./components/Skills'));
 const Projects = lazy(() => import('./components/Projects'));
+const Gallery = lazy(() => import('./components/Gallery'));
 const Contact = lazy(() => import('./components/Contact'));
 const Footer = lazy(() => import('./components/Footer'));
 
@@ -114,6 +117,12 @@ function App() {
         transition={{ duration: 0.5 }}
         className="min-h-screen bg-white dark:bg-gray-900 transition-colors duration-500"
       >
+        {/* Background Animations */}
+        <BackgroundAnimations />
+        
+        {/* Custom Cursor */}
+        <CursorFollower />
+        
         {/* Progress Bar */}
         <ProgressBar />
         
@@ -145,6 +154,10 @@ function App() {
           
           <Suspense fallback={<SectionLoader />}>
             <Projects />
+          </Suspense>
+          
+          <Suspense fallback={<SectionLoader />}>
+            <Gallery />
           </Suspense>
           
           <Suspense fallback={<SectionLoader />}>
