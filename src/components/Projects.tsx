@@ -1,19 +1,19 @@
 // components/Projects.tsx
-import React, { useState, useRef, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { 
-  ExternalLink, 
-  Github, 
-  Calendar, 
-  Star, 
-  ChevronLeft, 
-  ChevronRight, 
-  Eye, 
-  X, 
+import React, { useState, useRef, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import {
+  ExternalLink,
+  Github,
+  Calendar,
+  Star,
+  ChevronLeft,
+  ChevronRight,
+  Eye,
+  X,
   ZoomIn,
   Download,
-  Maximize2
-} from 'lucide-react';
+  Maximize2,
+} from "lucide-react";
 
 type ProjectType = {
   title: string;
@@ -27,7 +27,7 @@ type ProjectType = {
   category: string;
   shortDescription?: string;
   highlights?: string[];
-  status?: 'completed' | 'in-progress' | 'maintained' | 'inactive';
+  status?: "completed" | "in-progress" | "maintained" | "inactive";
 };
 
 // Component Lightbox terpisah untuk reusability
@@ -39,7 +39,15 @@ const ImageLightbox: React.FC<{
   onPrevious: () => void;
   onNext: () => void;
   projectTitle: string;
-}> = ({ images, currentIndex, isOpen, onClose, onPrevious, onNext, projectTitle }) => {
+}> = ({
+  images,
+  currentIndex,
+  isOpen,
+  onClose,
+  onPrevious,
+  onNext,
+  projectTitle,
+}) => {
   const [isZoomed, setIsZoomed] = useState(false);
   const [imagePosition, setImagePosition] = useState({ x: 0, y: 0 });
   const imageRef = useRef<HTMLImageElement>(null);
@@ -48,38 +56,38 @@ const ImageLightbox: React.FC<{
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (!isOpen) return;
-      
+
       switch (e.key) {
-        case 'Escape':
+        case "Escape":
           onClose();
           break;
-        case 'ArrowLeft':
+        case "ArrowLeft":
           onPrevious();
           break;
-        case 'ArrowRight':
+        case "ArrowRight":
           onNext();
           break;
-        case ' ':
+        case " ":
           e.preventDefault();
           setIsZoomed(!isZoomed);
           break;
       }
     };
 
-    document.addEventListener('keydown', handleKeyDown);
-    return () => document.removeEventListener('keydown', handleKeyDown);
+    document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
   }, [isOpen, onClose, onPrevious, onNext, isZoomed]);
 
   // Prevent body scroll saat lightbox open
   useEffect(() => {
     if (isOpen) {
-      document.body.style.overflow = 'hidden';
+      document.body.style.overflow = "hidden";
     } else {
-      document.body.style.overflow = 'unset';
+      document.body.style.overflow = "unset";
     }
 
     return () => {
-      document.body.style.overflow = 'unset';
+      document.body.style.overflow = "unset";
     };
   }, [isOpen]);
 
@@ -90,7 +98,7 @@ const ImageLightbox: React.FC<{
     const rect = imageRef.current.getBoundingClientRect();
     const x = ((e.clientX - rect.left) / rect.width) * 100;
     const y = ((e.clientY - rect.top) / rect.height) * 100;
-    
+
     setImagePosition({ x, y });
   };
 
@@ -100,7 +108,7 @@ const ImageLightbox: React.FC<{
       const response = await fetch(images[currentIndex]);
       const blob = await response.blob();
       const url = window.URL.createObjectURL(blob);
-      const link = document.createElement('a');
+      const link = document.createElement("a");
       link.href = url;
       link.download = `${projectTitle}-image-${currentIndex + 1}.jpg`;
       document.body.appendChild(link);
@@ -108,7 +116,7 @@ const ImageLightbox: React.FC<{
       document.body.removeChild(link);
       window.URL.revokeObjectURL(url);
     } catch (error) {
-      console.error('Error downloading image:', error);
+      console.error("Error downloading image:", error);
     }
   };
 
@@ -136,7 +144,7 @@ const ImageLightbox: React.FC<{
               {currentIndex + 1} of {images.length}
             </p>
           </div>
-          
+
           <div className="flex items-center gap-2">
             {/* Zoom toggle */}
             <motion.button
@@ -223,12 +231,18 @@ const ImageLightbox: React.FC<{
             ref={imageRef}
             src={images[currentIndex]}
             alt={`${projectTitle} - Image ${currentIndex + 1}`}
-            className={`max-w-full max-h-full object-contain rounded-lg shadow-2xl cursor-${isZoomed ? 'zoom-out' : 'zoom-in'}`}
-            style={isZoomed ? {
-              transformOrigin: `${imagePosition.x}% ${imagePosition.y}%`,
-              transform: 'scale(2)',
-              transition: 'transform 0.3s ease'
-            } : {}}
+            className={`max-w-full max-h-full object-contain rounded-lg shadow-2xl cursor-${
+              isZoomed ? "zoom-out" : "zoom-in"
+            }`}
+            style={
+              isZoomed
+                ? {
+                    transformOrigin: `${imagePosition.x}% ${imagePosition.y}%`,
+                    transform: "scale(2)",
+                    transition: "transform 0.3s ease",
+                  }
+                : {}
+            }
             onClick={() => setIsZoomed(!isZoomed)}
             onMouseMove={handleMouseMove}
             drag={isZoomed}
@@ -252,9 +266,9 @@ const ImageLightbox: React.FC<{
                   // Update current index - ini akan di-handle di parent component
                 }}
                 className={`w-12 h-12 rounded overflow-hidden border-2 transition-all ${
-                  index === currentIndex 
-                    ? 'border-white scale-110' 
-                    : 'border-white/30 hover:border-white/60'
+                  index === currentIndex
+                    ? "border-white scale-110"
+                    : "border-white/30 hover:border-white/60"
                 }`}
                 whileHover={{ scale: index === currentIndex ? 1.1 : 1.05 }}
               >
@@ -283,14 +297,18 @@ const ImageLightbox: React.FC<{
 };
 
 const Projects: React.FC = () => {
-  const [filter, setFilter] = useState<'all' | 'featured' | 'web' | 'others'>('featured');
-  
+  const [filter, setFilter] = useState<"all" | "featured" | "web" | "others">(
+    "featured"
+  );
+
   const projects: ProjectType[] = [
     // PROJEK 1
     {
       title: "Sistem Kependudukan RW.13 Tegalsari (Inactive) | 2024",
-      description: "Sistem manajemen data penduduk yang komprehensif dengan fitur entry data, pelaporan, dan analitik. Sistem ini memungkinkan pengelolaan data penduduk secara digital dengan interface yang user-friendly dan dashboard analytics yang informatif. Termasuk entri kos dan warga kos, warga asli, dan pendatang, sampai pengelolaan ketua RT dan RW",
-      shortDescription: "Sistem manajemen data penduduk berbasis web dengan analytics. Termasuk entri kos dan warga kos, warga asli, dan pendatang, sampai pengelolaan ketua RT dan RW.",
+      description:
+        "Sistem manajemen data penduduk yang komprehensif dengan fitur entry data, pelaporan, dan analitik. Sistem ini memungkinkan pengelolaan data penduduk secara digital dengan interface yang user-friendly dan dashboard analytics yang informatif. Termasuk entri kos dan warga kos, warga asli, dan pendatang, sampai pengelolaan ketua RT dan RW",
+      shortDescription:
+        "Sistem manajemen data penduduk berbasis web dengan analytics. Termasuk entri kos dan warga kos, warga asli, dan pendatang, sampai pengelolaan ketua RT dan RW.",
       images: [
         "/images/population1.png",
         "/images/population2.png",
@@ -298,20 +316,29 @@ const Projects: React.FC = () => {
         "/images/population4.png",
         "/images/population5.png",
       ],
-      technologies: ["PHP", "Laravel", "MySQL", "Bootstrap", "Chart.js", "MySQL"],
+      technologies: [
+        "PHP",
+        "Laravel",
+        "MySQL",
+        "Bootstrap",
+        "Chart.js",
+        "MySQL",
+      ],
       demoLink: "#",
       githubLink: "https://github.com/terminator791/pbl-sistem-penduduk",
       featured: true,
       date: "2024",
       category: "Web Development",
       highlights: ["Multi-user Management", "Data Export Features"],
-      status: 'inactive'
+      status: "inactive",
     },
     // PROJEK 2
     {
       title: "Palmer Jateng Platform (Web) | 2024",
-      description: "Platform digital untuk Palmer Jateng dengan interface web dan mobile. Platform ini menyediakan layanan informasi, reservasi, dan berbagai fitur untuk mendukung aktivitas Palmer di Jawa Tengah. Termasuk system booking, pengecekan kamar, integrasi payment dengan midtrans, dll.",
-      shortDescription: "Platform digital PMI Jateng multi-platform. Termasuk system booking, pengecekan kamar, serta kami mengintegrasikan payment dengan midtrans, dll.",
+      description:
+        "Platform digital untuk Palmer Jateng dengan interface web dan mobile. Platform ini menyediakan layanan informasi, reservasi, dan berbagai fitur untuk mendukung aktivitas Palmer di Jawa Tengah. Termasuk system booking, pengecekan kamar, integrasi payment dengan midtrans, dll.",
+      shortDescription:
+        "Platform digital PMI Jateng multi-platform. Termasuk system booking, pengecekan kamar, serta kami mengintegrasikan payment dengan midtrans, dll.",
       images: [
         "/images/palmer1.png",
         "/images/palmer2.png",
@@ -320,20 +347,30 @@ const Projects: React.FC = () => {
         "/images/palmer5.png",
         "/images/palmer6.png",
       ],
-      technologies: ["PHP", "Laravel", "Filament", "MySQL", "Flutter", "midtrans"],
+      technologies: [
+        "PHP",
+        "Laravel",
+        "Filament",
+        "MySQL",
+        "Flutter",
+        "midtrans",
+      ],
       demoLink: "https://palmerinjateng.id/",
       githubLink: "#",
       featured: true,
       date: "2024",
       category: "Web Development",
       highlights: ["Cross-platform", "Login System", "Booking System"],
-      status: 'maintained'
+      status: "maintained",
     },
     // PROJEK 3
     {
-      title: "Inventory & Admin Panel Pusdiklat PMI Booking System (web) | 2024",
-      description: "Membangun system inventoris dan admin panel responsif menggunakan filament untuk memonitor inventory booking, termasuk autentikasi berbasis JWT, mendesain API, dll.",
-      shortDescription: "Membangun system inventoris dan admin panel responsif menggunakan filament untuk memonitor inventory booking, termasuk autentikasi berbasis JWT, mendesain API, dll.",
+      title:
+        "Inventory & Admin Panel Pusdiklat PMI Booking System (web) | 2024",
+      description:
+        "Membangun system inventoris dan admin panel responsif menggunakan filament untuk memonitor inventory booking, termasuk autentikasi berbasis JWT, mendesain API, dll.",
+      shortDescription:
+        "Membangun system inventoris dan admin panel responsif menggunakan filament untuk memonitor inventory booking, termasuk autentikasi berbasis JWT, mendesain API, dll.",
       images: [
         "/images/adminpalmer1.png",
         "/images/adminpalmer2.png",
@@ -351,14 +388,22 @@ const Projects: React.FC = () => {
       featured: true,
       date: "2024",
       category: "Web Development",
-      highlights: ["Inventory System", "Admin Panel", "JWT Auth", "API Design", "Tracking Room"],
-      status: 'maintained'
+      highlights: [
+        "Inventory System",
+        "Admin Panel",
+        "JWT Auth",
+        "API Design",
+        "Tracking Room",
+      ],
+      status: "maintained",
     },
     // PROJEK 4
     {
       title: "Matching Fund Floodsense 2024 (web) | 2024",
-      description: "Membangun admin panel responsive menggunakan filament untuk memonitor banjir dari berbagai kota.",
-      shortDescription: "Membangun admin panel responsive menggunakan filament untuk memonitor banjir dari berbagai kota.",
+      description:
+        "Membangun admin panel responsive menggunakan filament untuk memonitor banjir dari berbagai kota.",
+      shortDescription:
+        "Membangun admin panel responsive menggunakan filament untuk memonitor banjir dari berbagai kota.",
       images: [
         "/images/floodsense1.png",
         "/images/floodsense2.png",
@@ -369,20 +414,30 @@ const Projects: React.FC = () => {
         "/images/floodsense7.png",
         "/images/floodsense8.png",
       ],
-      technologies: ["PHP", "Laravel", "Filament", "MySQL", "Flutter", "midtrans"],
-      demoLink: "",
+      technologies: [
+        "PHP",
+        "Laravel",
+        "Filament",
+        "MySQL",
+        "Flutter",
+        "midtrans",
+      ],
+      demoLink: "https://cerdaspantaubanjir.my.id/",
       githubLink: "#",
       featured: true,
       date: "2024",
       category: "Web Development",
       highlights: ["Cross-platform", "Login System", "Booking System"],
-      status: 'maintained'
+      status: "maintained",
     },
     // PROJEK 5
     {
-      title: "Sistem Enterprise Mitra Kampus menggunakan Odoo 2025 (web) | 2025",
-      description: "Membuat sistem enterprise dengan odoo untuk inventoris, pengelolaan karyawan, barang, kehadiran, serta e-commerce.",
-      shortDescription: "Membuat sistem enterprise dengan odoo untuk inventoris, pengelolaan karyawan, barang, kehadiran, serta e-commerce.",
+      title:
+        "Sistem Enterprise Mitra Kampus menggunakan Odoo 2025 (web) | 2025",
+      description:
+        "Membuat sistem enterprise dengan odoo untuk inventoris, pengelolaan karyawan, barang, kehadiran, serta e-commerce.",
+      shortDescription:
+        "Membuat sistem enterprise dengan odoo untuk inventoris, pengelolaan karyawan, barang, kehadiran, serta e-commerce.",
       images: [
         "/images/odoo1.png",
         "/images/odoo2.png",
@@ -399,61 +454,66 @@ const Projects: React.FC = () => {
       date: "2025",
       category: "Web Development",
       highlights: ["Enterprise System", "Odoo Integration", "PostgreSQL"],
-      status: 'maintained'
+      status: "maintained",
     },
     // PROJEK 6
     {
       title: "IOT monitoring sensor (IOT) | 2024",
-      description: "Membuat aplikasi berbasis react native untuk memonitoring sensor seperti suhu, kelembapan dll. Aplikasi ini menggunakan teknologi IOT untuk mengumpulkan data dari sensor dan menampilkannya secara real-time.",
-      shortDescription: "Membuat aplikasi berbasis react native untuk memonitoring sensor seperti suhu, kelembapan dll. Aplikasi ini menggunakan teknologi IOT untuk mengumpulkan data dari sensor dan menampilkannya secara real-time.",
-      images: [
-        "/images/iot1.png",
-        "/images/iot2.png",
-
-      ],
+      description:
+        "Membuat aplikasi berbasis react native untuk memonitoring sensor seperti suhu, kelembapan dll. Aplikasi ini menggunakan teknologi IOT untuk mengumpulkan data dari sensor dan menampilkannya secara real-time.",
+      shortDescription:
+        "Membuat aplikasi berbasis react native untuk memonitoring sensor seperti suhu, kelembapan dll. Aplikasi ini menggunakan teknologi IOT untuk mengumpulkan data dari sensor dan menampilkannya secara real-time.",
+      images: ["/images/iot1.png", "/images/iot2.png"],
       technologies: ["React Native", "Firebase"],
       demoLink: "#",
       githubLink: "https://github.com/terminator791/ESIOT32",
       featured: false,
       date: "2024",
       category: "others",
-      highlights: ["Real-time Monitoring", "Sensor Data Visualization", "Cross-platform"],
-      status: 'completed'
+      highlights: [
+        "Real-time Monitoring",
+        "Sensor Data Visualization",
+        "Cross-platform",
+      ],
+      status: "completed",
     },
     // PROJEK 7
     {
       title: "Facebook Redesign (design) | 2023",
-      description: "Mendesain ulang facebook untuk mengoptimalkan pengalaman pengguna lebih baik dan menambah sedikit detail. Desain ini berfokus pada kesederhanaan, kemudahan navigasi, dan estetika modern.",
-      shortDescription: "Mendesain ulang facebook untuk mengoptimalkan pengalaman pengguna lebih baik dan menambah sedikit detail. Desain ini berfokus pada kesederhanaan, kemudahan navigasi, dan estetika modern.",
+      description:
+        "Mendesain ulang facebook untuk mengoptimalkan pengalaman pengguna lebih baik dan menambah sedikit detail. Desain ini berfokus pada kesederhanaan, kemudahan navigasi, dan estetika modern.",
+      shortDescription:
+        "Mendesain ulang facebook untuk mengoptimalkan pengalaman pengguna lebih baik dan menambah sedikit detail. Desain ini berfokus pada kesederhanaan, kemudahan navigasi, dan estetika modern.",
       images: [
         "/images/design1.png",
         "/images/design2.png",
         "/images/design3.png",
         "/images/design4.png",
         "/images/design5.png",
-
       ],
       technologies: ["Figma", "UI/UX Design"],
-      demoLink: "https://www.figma.com/design/YeWsjNjAbEHbQ6X0az5xC0/Tugas-Figma?m=auto&t=kVmUfhax8NLl5455-1",
+      demoLink:
+        "https://www.figma.com/design/YeWsjNjAbEHbQ6X0az5xC0/Tugas-Figma?m=auto&t=kVmUfhax8NLl5455-1",
       githubLink: "",
       featured: false,
       date: "2023",
       category: "others",
       highlights: ["UI/UX Design", "Figma Prototyping", "User-Centric Design"],
-      status: 'completed'
+      status: "completed",
     },
     // PROJEK 8
     {
       title: "“Petualangan Finley” Adventure Game (game)  | 2024",
-      description: "Membuat logic system dalam game Petualagan Finley, termasuk save system, damage system, dan mekanik game. Game ini adalah game petualangan yang mengajak pemain untuk menjelajahi dunia fantasi dengan berbagai tantangan dan misi.",
-      shortDescription: "Membuat logic system dalam game Petualagan Finley, termasuk save system, damage system, dan mekanik game. Game ini adalah game petualangan yang mengajak pemain untuk menjelajahi dunia fantasi dengan berbagai tantangan dan misi.",
+      description:
+        "Membuat logic system dalam game Petualagan Finley, termasuk save system, damage system, dan mekanik game. Game ini adalah game petualangan yang mengajak pemain untuk menjelajahi dunia fantasi dengan berbagai tantangan dan misi.",
+      shortDescription:
+        "Membuat logic system dalam game Petualagan Finley, termasuk save system, damage system, dan mekanik game. Game ini adalah game petualangan yang mengajak pemain untuk menjelajahi dunia fantasi dengan berbagai tantangan dan misi.",
       images: [
         "/images/game1.png",
         "/images/game2.png",
         "/images/game3.png",
         "/images/game4.png",
         "/images/game5.png",
-
       ],
       technologies: ["Unity", "C#", "Game Development"],
       demoLink: "https://finley.fandom.com/id/wiki/Getting_Started",
@@ -461,14 +521,19 @@ const Projects: React.FC = () => {
       featured: false,
       date: "2024",
       category: "others",
-      highlights: ["Game Logic System", "Save System", "Damage System", "Adventure Mechanics"],
-      status: 'completed'
+      highlights: [
+        "Game Logic System",
+        "Save System",
+        "Damage System",
+        "Adventure Mechanics",
+      ],
+      status: "completed",
     },
   ];
 
-  const filteredProjects = projects.filter(project => {
-    if (filter === 'all') return true;
-    if (filter === 'featured') return project.featured;
+  const filteredProjects = projects.filter((project) => {
+    if (filter === "all") return true;
+    if (filter === "featured") return project.featured;
     return project.category.toLowerCase().includes(filter);
   });
 
@@ -480,45 +545,47 @@ const Projects: React.FC = () => {
           animate={{ opacity: 1, y: 0 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-blue-700">
             Portfolio Projects
           </h2>
           <p className="text-gray-600 dark:text-gray-400 text-lg max-w-2xl mx-auto">
-            Kumpulan project yang telah saya kerjakan dengan fokus pada user experience dan teknologi modern
+            Kumpulan project yang telah saya kerjakan dengan fokus pada user
+            experience dan teknologi modern
           </p>
         </motion.div>
 
         {/* Filter Buttons */}
-        <motion.div 
+        <motion.div
           className="flex justify-center mb-12"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
         >
           <div className="bg-white dark:bg-gray-800 p-2 rounded-xl shadow-lg border border-gray-200 dark:border-gray-700">
-            {['featured', 'all', 'web', 'others'].map((filterOption) => (
+            {["featured", "all", "web", "others"].map((filterOption) => (
               <button
                 key={filterOption}
                 onClick={() => setFilter(filterOption as any)}
                 className={`px-6 py-2 rounded-lg text-sm font-medium transition-all duration-300 ${
                   filter === filterOption
-                    ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-md'
-                    : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700'
+                    ? "bg-blue-600 text-white shadow-md"
+                    : "text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
                 }`}
               >
-                {filterOption === 'featured' ? 'Featured' : 
-                 filterOption === 'all' ? 'Semua' :
-                 filterOption === 'web' ? 'Web Dev' : 'Others'}
+                {filterOption === "featured"
+                  ? "Featured"
+                  : filterOption === "all"
+                  ? "Semua"
+                  : filterOption === "web"
+                  ? "Web Dev"
+                  : "Others"}
               </button>
             ))}
           </div>
         </motion.div>
 
         {/* Projects Grid */}
-        <motion.div 
-          className="grid lg:grid-cols-2 gap-8"
-          layout
-        >
+        <motion.div className="grid lg:grid-cols-2 gap-8" layout>
           <AnimatePresence mode="wait">
             {filteredProjects.map((project, index) => (
               <motion.div
@@ -575,7 +642,9 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
   };
 
   const prevImage = () => {
-    setCurrentImg((prev) => (prev - 1 + project.images.length) % project.images.length);
+    setCurrentImg(
+      (prev) => (prev - 1 + project.images.length) % project.images.length
+    );
   };
 
   const openLightbox = (index: number) => {
@@ -592,16 +661,23 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
   };
 
   const prevLightboxImage = () => {
-    setLightboxIndex((prev) => (prev - 1 + project.images.length) % project.images.length);
+    setLightboxIndex(
+      (prev) => (prev - 1 + project.images.length) % project.images.length
+    );
   };
 
   const getStatusColor = (status: string) => {
     switch (status) {
-      case 'completed': return 'bg-green-500';
-      case 'in-progress': return 'bg-yellow-500';
-      case 'maintained': return 'bg-blue-500';
-      case 'inactive': return 'bg-red-500';
-      default: return 'bg-gray-500';
+      case "completed":
+        return "bg-green-500";
+      case "in-progress":
+        return "bg-yellow-500";
+      case "maintained":
+        return "bg-blue-500";
+      case "inactive":
+        return "bg-red-500";
+      default:
+        return "bg-gray-500";
     }
   };
 
@@ -609,13 +685,13 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
     <>
       <motion.div
         className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl overflow-hidden border border-gray-100 dark:border-gray-700 group h-full"
-        whileHover={{ 
+        whileHover={{
           scale: 1.02,
-          boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25)"
+          boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25)",
         }}
         onHoverStart={() => setIsHovered(true)}
         onHoverEnd={() => setIsHovered(false)}
-      >   
+      >
         {/* Enhanced Image Carousel */}
         <div className="relative overflow-hidden bg-gray-100 dark:bg-gray-700">
           <div className="relative h-72">
@@ -641,7 +717,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
             )}
 
             {/* Gradient overlay */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
             {/* Fullscreen button */}
             <motion.button
@@ -683,9 +759,9 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
                     key={index}
                     onClick={() => setCurrentImg(index)}
                     className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                      index === currentImg 
-                        ? 'bg-white scale-125' 
-                        : 'bg-white/50 hover:bg-white/75'
+                      index === currentImg
+                        ? "bg-white scale-125"
+                        : "bg-white/50 hover:bg-white/75"
                     }`}
                   />
                 ))}
@@ -697,16 +773,25 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
               <div className="bg-black/60 backdrop-blur-sm text-white px-3 py-1 rounded-full text-xs font-medium">
                 {project.category}
               </div>
-              <div className={`${getStatusColor(project.status || 'completed')} text-white px-3 py-1 rounded-full text-xs font-medium`}>
-                {project.status === 'completed' ? 'Selesai' :
-                 project.status === 'in-progress' ? 'Progress' :
-                 project.status === 'maintained' ? 'Maintained' :
-                 project.status === 'inactive' ? 'Inactive' : 'Unknown'}
+              <div
+                className={`${getStatusColor(
+                  project.status || "completed"
+                )} text-white px-3 py-1 rounded-full text-xs font-medium`}
+              >
+                {project.status === "completed"
+                  ? "Selesai"
+                  : project.status === "in-progress"
+                  ? "Progress"
+                  : project.status === "maintained"
+                  ? "Maintained"
+                  : project.status === "inactive"
+                  ? "Inactive"
+                  : "Unknown"}
               </div>
             </div>
 
             {project.featured && (
-              <div className="absolute top-4 right-16 bg-gradient-to-r from-yellow-400 to-orange-500 text-white px-3 py-1 rounded-full text-xs font-medium flex items-center gap-1">
+              <div className="absolute top-4 right-16 bg-yellow-400 text-white px-3 py-1 rounded-full text-xs font-medium flex items-center gap-1">
                 <Star size={14} fill="currentColor" /> Featured
               </div>
             )}
@@ -760,7 +845,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
               </motion.span>
             ))}
           </div>
-          
+
           {/* Action buttons */}
           <div className="flex gap-3">
             <motion.button
@@ -776,7 +861,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
               href={project.demoLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center gap-2 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-4 py-2.5 rounded-xl flex-1 text-sm font-medium transition-all duration-300 shadow-lg hover:shadow-xl"
+              className="flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2.5 rounded-xl flex-1 text-sm font-medium transition-all duration-300 shadow-lg hover:shadow-xl"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >

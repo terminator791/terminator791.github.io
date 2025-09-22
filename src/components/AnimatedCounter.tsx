@@ -1,7 +1,7 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import CountUp from 'react-countup';
-import { useInView } from 'react-intersection-observer';
+import React from "react";
+import { motion } from "framer-motion";
+import CountUp from "react-countup";
+import { useInView } from "react-intersection-observer";
 
 interface AnimatedCounterProps {
   end: number;
@@ -15,10 +15,10 @@ interface AnimatedCounterProps {
 const AnimatedCounter: React.FC<AnimatedCounterProps> = ({
   end,
   duration = 1,
-  suffix = '',
-  prefix = '',
+  suffix = "",
+  prefix = "",
   label,
-  icon
+  icon,
 }) => {
   const [ref, inView] = useInView({
     triggerOnce: true,
@@ -35,7 +35,7 @@ const AnimatedCounter: React.FC<AnimatedCounterProps> = ({
     >
       <motion.div
         whileHover={{ scale: 1.1, rotate: 5 }}
-        className="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-500 text-white rounded-lg mb-3"
+        className="inline-flex items-center justify-center w-12 h-12 bg-blue-500 text-white rounded-lg mb-3"
       >
         {icon}
       </motion.div>

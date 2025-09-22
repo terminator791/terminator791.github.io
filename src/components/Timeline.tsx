@@ -1,7 +1,7 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
-import { Calendar, MapPin, ExternalLink } from 'lucide-react';
+import React from "react";
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+import { Calendar, MapPin, ExternalLink } from "lucide-react";
 
 interface TimelineItem {
   id: string;
@@ -12,7 +12,7 @@ interface TimelineItem {
   description: string;
   highlights: string[];
   link?: string;
-  type: 'education' | 'experience' | 'project';
+  type: "education" | "experience" | "project";
 }
 
 interface TimelineProps {
@@ -32,9 +32,9 @@ const Timeline: React.FC<TimelineProps> = ({ items, title }) => {
       opacity: 1,
       transition: {
         delayChildren: 0.3,
-        staggerChildren: 0.2
-      }
-    }
+        staggerChildren: 0.2,
+      },
+    },
   };
 
   const itemVariants = {
@@ -44,34 +44,34 @@ const Timeline: React.FC<TimelineProps> = ({ items, title }) => {
       opacity: 1,
       transition: {
         duration: 0.6,
-        ease: "easeOut"
-      }
-    }
+        ease: "easeOut",
+      },
+    },
   };
 
   const getTypeColor = (type: string) => {
     switch (type) {
-      case 'education':
-        return 'bg-blue-600';
-      case 'experience':
-        return 'bg-green-600';
-      case 'project':
-        return 'bg-purple-600';
+      case "education":
+        return "bg-blue-600";
+      case "experience":
+        return "bg-green-600";
+      case "project":
+        return "bg-purple-600";
       default:
-        return 'bg-gray-600';
+        return "bg-gray-600";
     }
   };
 
   return (
     <div ref={ref} className="max-w-4xl mx-auto">
-      <motion.h3 
+      <motion.h3
         initial={{ opacity: 0, y: 20 }}
         animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
         className="text-2xl font-bold text-gray-900 dark:text-white mb-8 text-center"
       >
         {title}
       </motion.h3>
-      
+
       <motion.div
         variants={containerVariants}
         initial="hidden"
@@ -81,9 +81,9 @@ const Timeline: React.FC<TimelineProps> = ({ items, title }) => {
         {/* Timeline line */}
         <motion.div
           initial={{ height: 0 }}
-          animate={inView ? { height: '100%' } : { height: 0 }}
+          animate={inView ? { height: "100%" } : { height: 0 }}
           transition={{ duration: 1.5, ease: "easeInOut" }}
-          className="absolute left-4 top-0 w-0.5 bg-gradient-to-b from-blue-600 to-purple-600"
+          className="absolute left-4 top-0 w-0.5 bg-blue-600"
         />
 
         {items.map((item, index) => (
@@ -96,8 +96,14 @@ const Timeline: React.FC<TimelineProps> = ({ items, title }) => {
             <motion.div
               initial={{ scale: 0 }}
               animate={inView ? { scale: 1 } : { scale: 0 }}
-              transition={{ delay: index * 0.2 + 0.5, type: "spring", stiffness: 200 }}
-              className={`absolute left-2 top-2 w-4 h-4 ${getTypeColor(item.type)} rounded-full border-4 border-white dark:border-gray-900 shadow-lg`}
+              transition={{
+                delay: index * 0.2 + 0.5,
+                type: "spring",
+                stiffness: 200,
+              }}
+              className={`absolute left-2 top-2 w-4 h-4 ${getTypeColor(
+                item.type
+              )} rounded-full border-4 border-white dark:border-gray-900 shadow-lg`}
             />
 
             <motion.div
@@ -152,7 +158,9 @@ const Timeline: React.FC<TimelineProps> = ({ items, title }) => {
                       <motion.li
                         key={idx}
                         initial={{ opacity: 0, x: -10 }}
-                        animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: -10 }}
+                        animate={
+                          inView ? { opacity: 1, x: 0 } : { opacity: 0, x: -10 }
+                        }
                         transition={{ delay: index * 0.2 + idx * 0.1 + 0.8 }}
                         className="text-sm text-gray-600 dark:text-gray-400 flex items-start gap-2"
                       >

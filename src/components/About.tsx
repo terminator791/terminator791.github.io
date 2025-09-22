@@ -1,9 +1,18 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
-import { User, Target, Heart, Code, Lightbulb, Users, Calendar, Award } from 'lucide-react';
-import AnimatedCounter from './AnimatedCounter';
-import AchievementBadge from './AchievementBadge';
+import React from "react";
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+import {
+  User,
+  Target,
+  Heart,
+  Code,
+  Lightbulb,
+  Users,
+  Calendar,
+  Award,
+} from "lucide-react";
+import AnimatedCounter from "./AnimatedCounter";
+import AchievementBadge from "./AchievementBadge";
 
 const About: React.FC = () => {
   const [ref, inView] = useInView({
@@ -17,9 +26,9 @@ const About: React.FC = () => {
       opacity: 1,
       transition: {
         delayChildren: 0.3,
-        staggerChildren: 0.2
-      }
-    }
+        staggerChildren: 0.2,
+      },
+    },
   };
 
   const itemVariants = {
@@ -28,9 +37,9 @@ const About: React.FC = () => {
       y: 0,
       opacity: 1,
       transition: {
-        duration: 0.5
-      }
-    }
+        duration: 0.5,
+      },
+    },
   };
 
   const cardVariants = {
@@ -39,9 +48,9 @@ const About: React.FC = () => {
       scale: 1,
       opacity: 1,
       transition: {
-        duration: 0.5
-      }
-    }
+        duration: 0.5,
+      },
+    },
   };
 
   return (
@@ -53,13 +62,13 @@ const About: React.FC = () => {
           animate={inView ? "visible" : "hidden"}
           className="text-center mb-16"
         >
-          <motion.h2 
+          <motion.h2
             variants={itemVariants}
             className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4"
           >
             About Me
           </motion.h2>
-          <motion.p 
+          <motion.p
             variants={itemVariants}
             className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto"
           >
@@ -107,42 +116,58 @@ const About: React.FC = () => {
             animate={inView ? "visible" : "hidden"}
             className="space-y-6"
           >
-            <motion.p 
+            <motion.p
               variants={itemVariants}
               className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed"
             >
-              I'm <span className="font-semibold gradient-text">Iqbal Bagus</span>, a dedicated Informatics and Computer Engineering student with a passion for 
-              solving complex problems through innovative technology solutions. My journey in 
-              web developer and computer science has equipped me with both theoretical knowledge                  and practical skills in software development.
-            </motion.p>
-            
-            <motion.p 
-              variants={itemVariants}
-              className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed"
-            >
-              Known for my <span className="font-semibold text-blue-600 dark:text-blue-400">intelligence and eagerness to learn</span>, I thrive in environments that 
-              challenge me to grow professionally. I'm particularly interested in working with 
-              both startups and established corporations to contribute to meaningful projects 
-              that make a real impact.
+              I'm{" "}
+              <span className="font-semibold gradient-text">Iqbal Bagus</span>,
+              a dedicated Informatics and Computer Engineering student with a
+              passion for solving complex problems through innovative technology
+              solutions. My journey in web developer and computer science has
+              equipped me with both theoretical knowledge and practical skills
+              in software development.
             </motion.p>
 
-            <motion.div 
+            <motion.p
+              variants={itemVariants}
+              className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed"
+            >
+              Known for my{" "}
+              <span className="font-semibold text-blue-600 dark:text-blue-400">
+                intelligence and eagerness to learn
+              </span>
+              , I thrive in environments that challenge me to grow
+              professionally. I'm particularly interested in working with both
+              startups and established corporations to contribute to meaningful
+              projects that make a real impact.
+            </motion.p>
+
+            <motion.div
               variants={itemVariants}
               className="flex flex-wrap gap-3 pt-4"
             >
               {[
-                { text: "Problem Solver", color: "from-blue-100 to-cyan-100 dark:from-blue-900 dark:to-cyan-900" },
-                { text: "Quick Learner", color: "from-green-100 to-emerald-100 dark:from-green-900 dark:to-emerald-900" }, 
-                { text: "Team Player", color: "from-purple-100 to-pink-100 dark:from-purple-900 dark:to-pink-900" },
-                { text: "Innovation Driven", color: "from-orange-100 to-red-100 dark:from-orange-900 dark:to-red-900" }
+                { text: "Problem Solver", color: "bg-blue-600" },
+                { text: "Quick Learner", color: "bg-green-600" },
+                { text: "Team Player", color: "bg-purple-600" },
+                { text: "Innovation Driven", color: "bg-orange-600" },
               ].map((trait, index) => (
                 <motion.span
                   key={trait.text}
                   initial={{ scale: 0, rotate: -180 }}
-                  animate={inView ? { scale: 1, rotate: 0 } : { scale: 0, rotate: -180 }}
-                  transition={{ delay: 0.5 + index * 0.1, type: "spring", stiffness: 200 }}
+                  animate={
+                    inView
+                      ? { scale: 1, rotate: 0 }
+                      : { scale: 0, rotate: -180 }
+                  }
+                  transition={{
+                    delay: 0.5 + index * 0.1,
+                    type: "spring",
+                    stiffness: 200,
+                  }}
                   whileHover={{ scale: 1.05, y: -2 }}
-                  className={`px-4 py-2 bg-gradient-to-r ${trait.color} text-blue-800 dark:text-blue-200 rounded-full text-sm font-medium border border-blue-200 dark:border-blue-700 cursor-default`}
+                  className={`px-4 py-2 ${trait.color} text-white rounded-full text-sm font-medium border border-blue-200 dark:border-blue-700 cursor-default`}
                 >
                   {trait.text}
                 </motion.span>
@@ -160,24 +185,24 @@ const About: React.FC = () => {
               {
                 icon: User,
                 title: "Who I Am",
-                description: "A curious and driven computer engineering student who believes in the power of technology to solve real-world problems.",
+                description:
+                  "A curious and driven computer engineering student who believes in the power of technology to solve real-world problems.",
                 color: "blue",
-                gradient: "from-blue-500 to-cyan-500"
               },
               {
                 icon: Target,
                 title: "My Goals",
-                description: "To contribute to innovative projects in both startup and corporate environments, continuously learning and growing as a developer.",
+                description:
+                  "To contribute to innovative projects in both startup and corporate environments, continuously learning and growing as a developer.",
                 color: "green",
-                gradient: "from-green-500 to-emerald-500"
               },
               {
                 icon: Heart,
                 title: "What I Love",
-                description: "Learning new technologies, tackling challenging problems, and collaborating with talented teams to build amazing products.",
+                description:
+                  "Learning new technologies, tackling challenging problems, and collaborating with talented teams to build amazing products.",
                 color: "red",
-                gradient: "from-red-500 to-pink-500"
-              }
+              },
             ].map((item, index) => (
               <motion.div
                 key={item.title}
@@ -189,12 +214,12 @@ const About: React.FC = () => {
                   <motion.div
                     whileHover={{ rotate: 360, scale: 1.1 }}
                     transition={{ duration: 0.6 }}
-                    className={`p-3 bg-gradient-to-r ${item.gradient} rounded-lg text-white shadow-lg group-hover:shadow-xl`}
+                    className={`p-3 bg-${item.color}-500 rounded-lg text-white shadow-lg group-hover:shadow-xl`}
                   >
                     <item.icon className="w-6 h-6" />
                   </motion.div>
                   <div className="flex-1">
-                    <motion.h3 
+                    <motion.h3
                       className="text-xl font-semibold text-gray-900 dark:text-white mb-2"
                       whileHover={{ x: 5 }}
                     >
@@ -248,24 +273,26 @@ const About: React.FC = () => {
           initial={{ opacity: 0, y: 50 }}
           animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
           transition={{ delay: 1.2, duration: 0.6 }}
-          className="mt-16 bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 p-8 rounded-xl border border-blue-200 dark:border-blue-800"
+          className="mt-16 bg-blue-50 dark:bg-blue-900/20 p-8 rounded-xl border border-blue-200 dark:border-blue-800"
         >
-          <motion.h3 
+          <motion.h3
             className="text-2xl font-semibold text-gray-900 dark:text-white mb-6 text-center flex items-center justify-center gap-2"
             whileHover={{ scale: 1.05 }}
           >
             <Award className="w-6 h-6 text-blue-600" />
             My Journey
           </motion.h3>
-          <motion.p 
+          <motion.p
             className="text-gray-700 dark:text-gray-300 leading-relaxed text-center max-w-4xl mx-auto"
             whileHover={{ scale: 1.02 }}
           >
-            My journey in technology began with curiosity and has evolved into a passion for creating 
-            meaningful digital experiences. From my early days exploring programming concepts to building 
-            complex web applications, I've consistently pushed myself to learn, grow, and contribute to 
-            projects that matter. Every challenge is an opportunity to innovate, and every project is 
-            a chance to make a positive impact.
+            My journey in technology began with curiosity and has evolved into a
+            passion for creating meaningful digital experiences. From my early
+            days exploring programming concepts to building complex web
+            applications, I've consistently pushed myself to learn, grow, and
+            contribute to projects that matter. Every challenge is an
+            opportunity to innovate, and every project is a chance to make a
+            positive impact.
           </motion.p>
         </motion.div>
       </div>

@@ -1,7 +1,7 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
-import { Code, Database, Globe, Wrench, Smartphone, Cloud } from 'lucide-react';
+import React from "react";
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+import { Code, Database, Globe, Wrench, Smartphone, Cloud } from "lucide-react";
 
 const Skills: React.FC = () => {
   const [ref, inView] = useInView({
@@ -14,67 +14,186 @@ const Skills: React.FC = () => {
       title: "Programming Languages",
       icon: <Code className="w-6 h-6" />,
       skills: [
-        { name: "JavaScript", level: "Intermediate", color: "bg-yellow-100 dark:bg-yellow-900 text-yellow-800 dark:text-yellow-200" },
-        { name: "TypeScript", level: "Learning", color: "bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200" },
-        { name: "Python", level: "Intermediate", color: "bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200" },
-        { name: "Golang", level: "Learning", color: "bg-red-100 dark:bg-red-900 text-red-800 dark:text-red-200" },
-        { name: "PHP", level: "Intermediate", color: "bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200" },
-      ]
+        {
+          name: "JavaScript",
+          level: "Intermediate",
+          color:
+            "bg-yellow-100 dark:bg-yellow-900 text-yellow-800 dark:text-yellow-200",
+        },
+        {
+          name: "TypeScript",
+          level: "Learning",
+          color:
+            "bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200",
+        },
+        {
+          name: "Python",
+          level: "Intermediate",
+          color:
+            "bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200",
+        },
+        {
+          name: "Golang",
+          level: "Learning",
+          color: "bg-red-100 dark:bg-red-900 text-red-800 dark:text-red-200",
+        },
+        {
+          name: "PHP",
+          level: "Intermediate",
+          color:
+            "bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200",
+        },
+      ],
     },
     {
       title: "Web Technologies",
       icon: <Globe className="w-6 h-6" />,
       skills: [
-        { name: "Laravel", level: "Advanced", color: "bg-red-100 dark:bg-red-900 text-red-800 dark:text-red-200" },
-        { name: "React", level: "Learning", color: "bg-cyan-100 dark:bg-cyan-900 text-cyan-800 dark:text-cyan-200" },
-        { name: "HTML/CSS", level: "Intermediate", color: "bg-orange-100 dark:bg-orange-900 text-orange-800 dark:text-orange-200" },
-        { name: "Express js", level: "Learning", color: "bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200" },
-        { name: "Tailwind CSS", level: "Learning", color: "bg-teal-100 dark:bg-teal-900 text-teal-800 dark:text-teal-200" }
-      ]
+        {
+          name: "Laravel",
+          level: "Advanced",
+          color: "bg-red-100 dark:bg-red-900 text-red-800 dark:text-red-200",
+        },
+        {
+          name: "React",
+          level: "Learning",
+          color:
+            "bg-cyan-100 dark:bg-cyan-900 text-cyan-800 dark:text-cyan-200",
+        },
+        {
+          name: "HTML/CSS",
+          level: "Intermediate",
+          color:
+            "bg-orange-100 dark:bg-orange-900 text-orange-800 dark:text-orange-200",
+        },
+        {
+          name: "Express js",
+          level: "Learning",
+          color:
+            "bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200",
+        },
+        {
+          name: "Tailwind CSS",
+          level: "Learning",
+          color:
+            "bg-teal-100 dark:bg-teal-900 text-teal-800 dark:text-teal-200",
+        },
+      ],
     },
     {
       title: "Databases & Backend",
       icon: <Database className="w-6 h-6" />,
       skills: [
-        { name: "MySQL", level: "Intermediate", color: "bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200" },
-        { name: "PostgreSQL", level: "Learning", color: "bg-indigo-100 dark:bg-indigo-900 text-indigo-800 dark:text-indigo-200" },
-        { name: "MongoDB", level: "Learning", color: "bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200" },
-        { name: "REST APIs", level: "Advanced", color: "bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200" },
-        { name: "Firebase", level: "Learning", color: "bg-yellow-100 dark:bg-yellow-900 text-yellow-800 dark:text-yellow-200" }
-      ]
+        {
+          name: "MySQL",
+          level: "Intermediate",
+          color:
+            "bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200",
+        },
+        {
+          name: "PostgreSQL",
+          level: "Learning",
+          color:
+            "bg-indigo-100 dark:bg-indigo-900 text-indigo-800 dark:text-indigo-200",
+        },
+        {
+          name: "MongoDB",
+          level: "Learning",
+          color:
+            "bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200",
+        },
+        {
+          name: "REST APIs",
+          level: "Advanced",
+          color:
+            "bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200",
+        },
+        {
+          name: "Firebase",
+          level: "Learning",
+          color:
+            "bg-yellow-100 dark:bg-yellow-900 text-yellow-800 dark:text-yellow-200",
+        },
+      ],
     },
     {
       title: "Tools & Technologies",
       icon: <Wrench className="w-6 h-6" />,
       skills: [
-        { name: "Git", level: "Intermediate", color: "bg-orange-100 dark:bg-orange-900 text-orange-800 dark:text-orange-200" },
-        { name: "Docker", level: "Learning", color: "bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200" },
-        { name: "VS Code", level: "Advanced", color: "bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200" },
-        { name: "Postman", level: "Advanced", color: "bg-orange-100 dark:bg-orange-900 text-orange-800 dark:text-orange-200" }
-      ]
+        {
+          name: "Git",
+          level: "Intermediate",
+          color:
+            "bg-orange-100 dark:bg-orange-900 text-orange-800 dark:text-orange-200",
+        },
+        {
+          name: "Docker",
+          level: "Learning",
+          color:
+            "bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200",
+        },
+        {
+          name: "VS Code",
+          level: "Advanced",
+          color:
+            "bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200",
+        },
+        {
+          name: "Postman",
+          level: "Advanced",
+          color:
+            "bg-orange-100 dark:bg-orange-900 text-orange-800 dark:text-orange-200",
+        },
+      ],
     },
     {
       title: "Mobile Development",
       icon: <Smartphone className="w-6 h-6" />,
       skills: [
-        { name: "Flutter", level: "Learning", color: "bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200" },
-        { name: "React Native", level: "Learning", color: "bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200" }
-      ]
+        {
+          name: "Flutter",
+          level: "Learning",
+          color:
+            "bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200",
+        },
+        {
+          name: "React Native",
+          level: "Learning",
+          color:
+            "bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200",
+        },
+      ],
     },
     {
       title: "Cloud & DevOps",
       icon: <Cloud className="w-6 h-6" />,
       skills: [
-        { name: "AWS", level: "Learning", color: "bg-yellow-100 dark:bg-yellow-900 text-yellow-800 dark:text-yellow-200" },
-        { name: "Netlify", level: "Learning", color: "bg-teal-100 dark:bg-teal-900 text-teal-800 dark:text-teal-200" },
-        { name: "Vercel", level: "Learning", color: "bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200"}
-      ]
-    }
+        {
+          name: "AWS",
+          level: "Learning",
+          color:
+            "bg-yellow-100 dark:bg-yellow-900 text-yellow-800 dark:text-yellow-200",
+        },
+        {
+          name: "Netlify",
+          level: "Learning",
+          color:
+            "bg-teal-100 dark:bg-teal-900 text-teal-800 dark:text-teal-200",
+        },
+        {
+          name: "Vercel",
+          level: "Learning",
+          color:
+            "bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200",
+        },
+      ],
+    },
   ];
 
   const getLevelIndicator = (level: string) => {
-    const baseClasses = "inline-flex items-center px-2 py-1 rounded-full text-xs font-medium border";
-    
+    const baseClasses =
+      "inline-flex items-center px-2 py-1 rounded-full text-xs font-medium border";
+
     switch (level) {
       case "Advanced":
         return `${baseClasses} bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 border-green-300 dark:border-green-700`;
@@ -93,9 +212,9 @@ const Skills: React.FC = () => {
       opacity: 1,
       transition: {
         delayChildren: 0.3,
-        staggerChildren: 0.1
-      }
-    }
+        staggerChildren: 0.1,
+      },
+    },
   };
 
   const itemVariants = {
@@ -104,9 +223,9 @@ const Skills: React.FC = () => {
       y: 0,
       opacity: 1,
       transition: {
-        duration: 0.5
-      }
-    }
+        duration: 0.5,
+      },
+    },
   };
 
   const cardVariants = {
@@ -115,9 +234,9 @@ const Skills: React.FC = () => {
       scale: 1,
       opacity: 1,
       transition: {
-        duration: 0.5
-      }
-    }
+        duration: 0.5,
+      },
+    },
   };
 
   return (
@@ -129,13 +248,13 @@ const Skills: React.FC = () => {
           animate={inView ? "visible" : "hidden"}
           className="text-center mb-16"
         >
-          <motion.h2 
+          <motion.h2
             variants={itemVariants}
             className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4"
           >
             Skills & Technologies
           </motion.h2>
-          <motion.p 
+          <motion.p
             variants={itemVariants}
             className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto"
           >
@@ -168,13 +287,15 @@ const Skills: React.FC = () => {
                   {category.title}
                 </h3>
               </div>
-              
+
               <div className="space-y-4">
                 {category.skills.map((skill, skillIndex) => (
                   <motion.div
                     key={skillIndex}
                     initial={{ opacity: 0, x: -20 }}
-                    animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
+                    animate={
+                      inView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }
+                    }
                     transition={{ delay: 0.5 + skillIndex * 0.1 }}
                     className="flex items-center justify-between"
                   >
@@ -184,7 +305,11 @@ const Skills: React.FC = () => {
                     <motion.span
                       initial={{ scale: 0 }}
                       animate={inView ? { scale: 1 } : { scale: 0 }}
-                      transition={{ delay: 0.7 + skillIndex * 0.1, type: "spring", stiffness: 200 }}
+                      transition={{
+                        delay: 0.7 + skillIndex * 0.1,
+                        type: "spring",
+                        stiffness: 200,
+                      }}
                       className={getLevelIndicator(skill.level)}
                     >
                       {skill.level}
@@ -201,9 +326,9 @@ const Skills: React.FC = () => {
           initial={{ opacity: 0, y: 50 }}
           animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
           transition={{ delay: 0.8, duration: 0.6 }}
-          className="mt-16 bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 p-8 rounded-xl border border-blue-200 dark:border-blue-800"
+          className="mt-16 bg-blue-50 dark:bg-blue-900/20 p-8 rounded-xl border border-blue-200 dark:border-blue-800"
         >
-          <motion.h3 
+          <motion.h3
             className="text-2xl font-semibold text-gray-900 dark:text-white mb-6 text-center"
             whileHover={{ scale: 1.05 }}
           >
@@ -212,19 +337,25 @@ const Skills: React.FC = () => {
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {[
               "Problem Solving",
-              "Team Collaboration", 
+              "Team Collaboration",
               "Hard Work",
               "Time Management",
               "Critical Thinking",
               "Adaptability",
               "Work Ethics",
-              "Project Management"
+              "Project Management",
             ].map((skill, index) => (
               <motion.div
                 key={index}
                 initial={{ scale: 0, rotate: -180 }}
-                animate={inView ? { scale: 1, rotate: 0 } : { scale: 0, rotate: -180 }}
-                transition={{ delay: 1 + index * 0.1, type: "spring", stiffness: 200 }}
+                animate={
+                  inView ? { scale: 1, rotate: 0 } : { scale: 0, rotate: -180 }
+                }
+                transition={{
+                  delay: 1 + index * 0.1,
+                  type: "spring",
+                  stiffness: 200,
+                }}
                 whileHover={{ scale: 1.05, y: -2 }}
                 className="bg-white dark:bg-gray-800 p-4 rounded-lg text-center shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100 dark:border-gray-700"
               >
@@ -243,7 +374,7 @@ const Skills: React.FC = () => {
           transition={{ delay: 1.2, duration: 0.6 }}
           className="mt-12 text-center"
         >
-          <motion.h4 
+          <motion.h4
             className="text-lg font-semibold text-gray-900 dark:text-white mb-4"
             whileHover={{ scale: 1.05 }}
           >
@@ -256,15 +387,19 @@ const Skills: React.FC = () => {
               "GraphQL",
               "Microservices",
               "DevOps",
-              "AI/ML"
+              "AI/ML",
             ].map((topic, index) => (
               <motion.span
                 key={index}
                 initial={{ scale: 0, y: 20 }}
                 animate={inView ? { scale: 1, y: 0 } : { scale: 0, y: 20 }}
-                transition={{ delay: 1.4 + index * 0.1, type: "spring", stiffness: 200 }}
+                transition={{
+                  delay: 1.4 + index * 0.1,
+                  type: "spring",
+                  stiffness: 200,
+                }}
                 whileHover={{ scale: 1.1, rotate: 2 }}
-                className="px-4 py-2 bg-gradient-to-r from-purple-100 to-pink-100 dark:from-purple-900 dark:to-pink-900 text-purple-800 dark:text-purple-200 rounded-full text-sm font-medium border border-purple-200 dark:border-purple-700 cursor-default"
+                className="px-4 py-2 bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 rounded-full text-sm font-medium border border-purple-200 dark:border-purple-700 cursor-default"
               >
                 {topic}
               </motion.span>

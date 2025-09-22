@@ -1,21 +1,21 @@
-import React, { useState, useEffect, Suspense, lazy } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Toaster } from 'react-hot-toast';
-import Header from './components/Header';
-import Hero from './components/Hero';
-import ProgressBar from './components/ProgressBar';
-import BackToTop from './components/BackToTop';
-import CursorFollower from './components/CursorFollower';
-import BackgroundAnimations from './components/BackgroundAnimations';
+import React, { useState, useEffect, Suspense, lazy } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Toaster } from "react-hot-toast";
+import Header from "./components/Header";
+import Hero from "./components/Hero";
+import ProgressBar from "./components/ProgressBar";
+import BackToTop from "./components/BackToTop";
+import CursorFollower from "./components/CursorFollower";
+import BackgroundAnimations from "./components/BackgroundAnimations";
 
 // Lazy load components for better performance
-const About = lazy(() => import('./components/About'));
-const Studies = lazy(() => import('./components/Studies'));
-const Skills = lazy(() => import('./components/Skills'));
-const Projects = lazy(() => import('./components/Projects'));
-const Gallery = lazy(() => import('./components/Gallery'));
-const Contact = lazy(() => import('./components/Contact'));
-const Footer = lazy(() => import('./components/Footer'));
+const About = lazy(() => import("./components/About"));
+const Studies = lazy(() => import("./components/Studies"));
+const Skills = lazy(() => import("./components/Skills"));
+const Projects = lazy(() => import("./components/Projects"));
+const Gallery = lazy(() => import("./components/Gallery"));
+const Contact = lazy(() => import("./components/Contact"));
+const Footer = lazy(() => import("./components/Footer"));
 
 // Loading component
 const SectionLoader = () => (
@@ -34,10 +34,12 @@ function App() {
 
   useEffect(() => {
     // Check for saved theme preference or default to light mode
-    const savedTheme = localStorage.getItem('theme');
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    
-    if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+    const savedTheme = localStorage.getItem("theme");
+    const prefersDark = window.matchMedia(
+      "(prefers-color-scheme: dark)"
+    ).matches;
+
+    if (savedTheme === "dark" || (!savedTheme && prefersDark)) {
       setDarkMode(true);
     }
 
@@ -52,13 +54,13 @@ function App() {
   useEffect(() => {
     // Apply theme to document with smooth transition
     const root = document.documentElement;
-    
+
     if (darkMode) {
-      root.classList.add('dark');
-      localStorage.setItem('theme', 'dark');
+      root.classList.add("dark");
+      localStorage.setItem("theme", "dark");
     } else {
-      root.classList.remove('dark');
-      localStorage.setItem('theme', 'light');
+      root.classList.remove("dark");
+      localStorage.setItem("theme", "light");
     }
   }, [darkMode]);
 
@@ -96,13 +98,13 @@ function App() {
           >
             Wait then...
           </motion.p>
-          
+
           {/* Loading progress bar */}
           <motion.div
             initial={{ width: 0 }}
-            animate={{ width: '100%' }}
+            animate={{ width: "100%" }}
             transition={{ duration: 1.5, ease: "easeInOut" }}
-            className="w-48 h-1 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full mx-auto mt-4"
+            className="w-48 h-1 bg-blue-600 rounded-full mx-auto mt-4"
           />
         </motion.div>
       </div>
@@ -117,53 +119,52 @@ function App() {
         transition={{ duration: 0.5 }}
         className="min-h-screen bg-white dark:bg-gray-900 transition-colors duration-500"
       >
-        
         {/* Progress Bar */}
         <ProgressBar />
-        
+
         {/* Toast Notifications */}
-        <Toaster 
+        <Toaster
           position="top-right"
           toastOptions={{
-            className: 'dark:bg-gray-800 dark:text-white',
+            className: "dark:bg-gray-800 dark:text-white",
             duration: 4000,
           }}
         />
 
         <Header darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
-        
+
         <main>
           <Hero />
-          
+
           <Suspense fallback={<SectionLoader />}>
             <About />
           </Suspense>
-          
+
           <Suspense fallback={<SectionLoader />}>
             <Studies />
           </Suspense>
-          
+
           <Suspense fallback={<SectionLoader />}>
             <Skills />
           </Suspense>
-          
+
           <Suspense fallback={<SectionLoader />}>
             <Projects />
           </Suspense>
-          
+
           <Suspense fallback={<SectionLoader />}>
             <Gallery />
           </Suspense>
-          
+
           <Suspense fallback={<SectionLoader />}>
             <Contact />
           </Suspense>
-          
+
           <Suspense fallback={<SectionLoader />}>
             <Footer />
           </Suspense>
         </main>
-        
+
         <BackToTop />
       </motion.div>
     </AnimatePresence>
