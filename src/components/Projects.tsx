@@ -529,13 +529,125 @@ const Projects: React.FC = () => {
       ],
       status: "completed",
     },
+    {
+      title: "VisionMart E-Commerce Platform | 2026",
+      description:
+        "Platform e-commerce multi-kategori dengan storefront dan admin panel. Sistem rekomendasi produk memanfaatkan model multimodal SigLIP2 dan LightGBM untuk membantu pengguna menemukan produk yang relevan.",
+      shortDescription:
+        "E-commerce multi-kategori dengan admin panel dan rekomendasi produk multimodal.",
+      images: [
+        "/images/visionmart1.png",
+        "/images/visionmart2.png",
+        "/images/visionmart3.png",
+        "/images/visionmart4.png",
+        "/images/visionmart5.png",
+        "/images/visionmart6.png",
+      ],
+      technologies: ["SigLIP2", "LightGBM", "E-Commerce"],
+      demoLink: "",
+      githubLink: "",
+      featured: true,
+      date: "2026",
+      category: "Web Development",
+      highlights: ["Storefront", "Admin Panel", "Product Recommendation"],
+      status: "maintained",
+    },
+    {
+      title: "CRM Chat BSJ7 | 2026",
+      description:
+        "Dashboard CRM percakapan WhatsApp untuk mengelola inbox agen, assignment percakapan, AI Agent, ringkasan chat AI, flow assignment, dan aktivitas pelanggan.",
+      shortDescription:
+        "CRM WhatsApp dengan inbox agen, assignment, AI Agent, dan ringkasan percakapan.",
+      images: Array.from({ length: 9 }, (_, index) => `/images/crm-chat${index + 1}.png`),
+      technologies: ["React", "Supabase", "n8n", "WhatsApp"],
+      demoLink: "",
+      githubLink: "",
+      featured: true,
+      date: "2026",
+      category: "Web Development",
+      highlights: ["Agent Inbox", "AI Chat Summary", "Conversation Assignment"],
+      status: "maintained",
+    },
+    {
+      title: "Page Builder BSJ7 | 2026",
+      description:
+        "Funnel dan page builder untuk menyusun landing page, checkout, upsell, dan downsell. Tersedia editor halaman, analitik, serta alur publikasi funnel.",
+      shortDescription:
+        "Funnel builder dengan landing page, checkout, upsell, downsell, dan analytics.",
+      images: Array.from({ length: 8 }, (_, index) => `/images/pagebuilder${index + 1}.png`),
+      technologies: ["GrapesJS", "Amazon S3", "ToyyibPay", "BayarCash"],
+      demoLink: "",
+      githubLink: "",
+      featured: true,
+      date: "2026",
+      category: "Web Development",
+      highlights: ["Funnel Builder", "Page Editor", "Payment Integration"],
+      status: "maintained",
+    },
+    {
+      title: "Utama Baja Sales Dashboard | 2026",
+      description:
+        "Dashboard operasional untuk mengelola penjualan dan kunjungan. Mencakup jadwal kunjungan, status aktivitas, data sales dan pelanggan, serta pelaporan kunjungan.",
+      shortDescription:
+        "Dashboard penjualan dan kunjungan untuk memantau aktivitas sales dan pelanggan.",
+      images: Array.from({ length: 6 }, (_, index) => `/images/utama_baja${index + 1}.png`),
+      technologies: ["Web Dashboard", "Sales Management"],
+      demoLink: "",
+      githubLink: "",
+      featured: false,
+      date: "2026",
+      category: "Web Development",
+      highlights: ["Visit Scheduling", "Sales Tracking", "Visit Reports"],
+      status: "maintained",
+    },
+    {
+      title: "Bigmove Travel | 2026",
+      description:
+        "Marketplace perjalanan umrah Malaysia dengan pencarian tujuan dan informasi paket perjalanan. Tampilan juga mendokumentasikan evaluasi performa, aksesibilitas, best practices, dan SEO melalui Lighthouse.",
+      shortDescription:
+        "Marketplace umrah Malaysia dengan pencarian paket dan evaluasi performa Lighthouse.",
+      images: [
+        "/images/bigmove-travel1.png",
+        "/images/bigmove-travel2.png",
+        "/images/bigmove-travel3.png",
+      ],
+      technologies: ["Web Development", "Lighthouse"],
+      demoLink: "",
+      githubLink: "",
+      featured: false,
+      date: "2026",
+      category: "Web Development",
+      highlights: ["Travel Marketplace", "Package Search", "Performance Optimization"],
+      status: "maintained",
+    },
+    {
+      title: "Kalkulator Finansial API | 2026",
+      description:
+        "Backend API kalkulator finansial dengan endpoint health check untuk memantau koneksi, request, error rate, resource pool, dan worker.",
+      shortDescription:
+        "Backend API kalkulator finansial dengan health check dan metrik layanan.",
+      images: [
+        "/images/kalkulator-finansial1.png",
+        "/images/kalkulator-finansial2.png",
+      ],
+      technologies: ["Go", "Gin", "REST API"],
+      demoLink: "",
+      githubLink: "",
+      featured: false,
+      date: "2026",
+      category: "Web Development",
+      highlights: ["Financial API", "Health Check", "Service Metrics"],
+      status: "completed",
+    },
   ];
 
-  const filteredProjects = projects.filter((project) => {
-    if (filter === "all") return true;
-    if (filter === "featured") return project.featured;
-    return project.category.toLowerCase().includes(filter);
-  });
+  const filteredProjects = projects
+    .filter((project) => {
+      if (filter === "all") return true;
+      if (filter === "featured") return project.featured;
+      return project.category.toLowerCase().includes(filter);
+    })
+    .sort((a, b) => Number(b.date) - Number(a.date));
 
   return (
     <section className="py-20 px-4 bg-gray-50 dark:bg-gray-900" id="projects">

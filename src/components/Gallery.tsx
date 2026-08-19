@@ -69,6 +69,30 @@ const Gallery: React.FC = () => {
       image: '/gallery/wordpress2.jpeg',
       description: 'Presentation of Landing Page for TB Mulyo Utomo',
       date: '2024-07-20'
+    },
+    {
+      id: '9',
+      image: '/gallery/techarea1.png',
+      description: 'Techarea Indonesia Tracking Sales UB project board',
+      date: '2025-11-13'
+    },
+    {
+      id: '10',
+      image: '/gallery/techarea2.png',
+      description: 'Techarea Indonesia project work-item tracking',
+      date: '2025-11-07'
+    },
+    {
+      id: '11',
+      image: '/gallery/techarea3.png',
+      description: 'Techarea Indonesia team project workspace',
+      date: '2025-10-31'
+    },
+    {
+      id: '12',
+      image: '/gallery/techarea4.png',
+      description: 'Techarea Indonesia Tracking Sales UB delivery board',
+      date: '2025-10-01'
     }
   ];
 
