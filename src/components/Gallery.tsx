@@ -128,7 +128,7 @@ const Gallery: React.FC = () => {
   }, [selectedImage, lightboxIndex]);
 
   return (
-    <section ref={ref} className="py-20 px-4 bg-gray-50 dark:bg-gray-900">
+    <section id="gallery" ref={ref} className="scroll-mt-20 py-20 px-4 bg-gray-50 dark:bg-gray-900">
       <h2 className="text-3xl font-bold text-center mb-10 text-gray-800 dark:text-gray-200">Gallery</h2>
       <div className="max-w-5xl mx-auto grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
         {galleryItems.map((item) => (

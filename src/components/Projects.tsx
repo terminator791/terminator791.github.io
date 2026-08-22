@@ -650,7 +650,7 @@ const Projects: React.FC = () => {
     .sort((a, b) => Number(b.date) - Number(a.date));
 
   return (
-    <section className="py-20 px-4 bg-gray-50 dark:bg-gray-900" id="projects">
+    <section className="scroll-mt-20 py-20 px-4 bg-gray-50 dark:bg-gray-900" id="projects">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 50 }}

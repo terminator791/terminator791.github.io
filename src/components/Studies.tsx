@@ -68,7 +68,7 @@ const Studies: React.FC = () => {
   return (
     <section
       id="studies"
-      className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50 dark:bg-gray-900"
+      className="scroll-mt-20 py-20 px-4 sm:px-6 lg:px-8 bg-gray-50 dark:bg-gray-900"
       ref={ref}
     >
       <div className="max-w-6xl mx-auto">

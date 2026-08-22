@@ -23,8 +23,10 @@ const Header: React.FC<HeaderProps> = ({ darkMode, toggleDarkMode }) => {
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
       setIsMenuOpen(false);
+      window.setTimeout(() => {
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 300);
     }
   };
 

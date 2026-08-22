@@ -119,7 +119,7 @@ const Contact: React.FC = () => {
   };
 
   return (
-    <section id="contact" className="py-20 px-4 sm:px-6 lg:px-8" ref={ref}>
+    <section id="contact" className="scroll-mt-20 py-20 px-4 sm:px-6 lg:px-8" ref={ref}>
       <Toaster
         position="top-right"
         toastOptions={{

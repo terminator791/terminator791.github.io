@@ -159,7 +159,7 @@ const Hero: React.FC = () => {
             </motion.span>
           </motion.h1>
 
-          <div className="text-lg sm:text-2xl lg:text-3xl text-gray-600 dark:text-gray-400 mb-4 min-h-14 sm:h-16 flex flex-col sm:flex-row items-center justify-center">
+          <div className="text-lg sm:text-2xl lg:text-3xl text-gray-600 dark:text-gray-400 mb-4 min-h-14 sm:h-16 flex flex-col sm:flex-row items-center justify-center min-w-0">
             <span className="sm:mr-2">I'm a</span>
             <TypewriterText
               texts={[
@@ -169,7 +169,7 @@ const Hero: React.FC = () => {
                 "Learner",
                 "Innovation Seeker",
               ]}
-              className="gradient-text font-semibold"
+              className="gradient-text font-semibold max-w-full text-center"
             />
           </div>
         </motion.div>

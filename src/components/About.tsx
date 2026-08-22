@@ -54,7 +54,7 @@ const About: React.FC = () => {
   };
 
   return (
-    <section id="about" className="py-20 px-4 sm:px-6 lg:px-8" ref={ref}>
+    <section id="about" className="scroll-mt-20 py-20 px-4 sm:px-6 lg:px-8" ref={ref}>
       <div className="max-w-6xl mx-auto">
         <motion.div
           variants={containerVariants}
