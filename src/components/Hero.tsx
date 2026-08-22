@@ -66,7 +66,7 @@ const Hero: React.FC = () => {
   };
 
   return (
-    <section className="min-h-screen flex items-center justify-center pt-16 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+    <section className="min-h-[100svh] flex items-center justify-center px-4 py-20 sm:px-6 sm:pt-16 lg:px-8 relative overflow-hidden">
       {/* Animated background */}
       <div className="absolute inset-0 bg-blue-500/5"></div>
 
@@ -127,7 +127,7 @@ const Hero: React.FC = () => {
         animate="visible"
         className="max-w-5xl mx-auto text-center relative z-10"
       >
-        <motion.div variants={itemVariants} className="mb-8">
+        <motion.div variants={itemVariants} className="mb-6 sm:mb-8">
           <motion.div
             whileHover={{ scale: 1.05, rotate: 2 }}
             transition={{ type: "spring", stiffness: 300, damping: 10 }}
@@ -136,7 +136,7 @@ const Hero: React.FC = () => {
             <LazyImage
               src="/images/iqbal.jpeg"
               alt="Iqbal Bagus"
-              className="w-48 h-48 rounded-full mx-auto mb-6 border-4 border-blue-500 shadow-2xl"
+              className="w-40 h-40 sm:w-48 sm:h-48 rounded-full mx-auto mb-4 sm:mb-6 border-4 border-blue-500 shadow-2xl"
               placeholder="Loading..."
             />
             <motion.div
@@ -147,8 +147,8 @@ const Hero: React.FC = () => {
           </motion.div>
         </motion.div>
 
-        <motion.div variants={itemVariants} className="mb-6">
-          <motion.h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white mb-4">
+        <motion.div variants={itemVariants} className="mb-4 sm:mb-6">
+          <motion.h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white mb-3 sm:mb-4">
             Hi, I'm{" "}
             <motion.span
               className="gradient-text inline-block"
@@ -159,8 +159,8 @@ const Hero: React.FC = () => {
             </motion.span>
           </motion.h1>
 
-          <div className="text-xl sm:text-2xl lg:text-3xl text-gray-600 dark:text-gray-400 mb-4 h-16 flex items-center justify-center">
-            <span className="mr-2">I'm a</span>
+          <div className="text-lg sm:text-2xl lg:text-3xl text-gray-600 dark:text-gray-400 mb-4 min-h-14 sm:h-16 flex flex-col sm:flex-row items-center justify-center">
+            <span className="sm:mr-2">I'm a</span>
             <TypewriterText
               texts={[
                 "Computer Engineering Student",
@@ -176,7 +176,7 @@ const Hero: React.FC = () => {
 
         <motion.p
           variants={itemVariants}
-          className="text-lg sm:text-xl text-gray-600 dark:text-gray-400 mb-8 max-w-3xl mx-auto leading-relaxed"
+          className="text-base sm:text-xl text-gray-600 dark:text-gray-400 mb-6 sm:mb-8 max-w-3xl mx-auto leading-relaxed"
         >
           Passionate about building innovative solutions and learning
           cutting-edge technologies. I transform ideas into reality through
@@ -185,7 +185,7 @@ const Hero: React.FC = () => {
 
         <motion.div
           variants={itemVariants}
-          className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12"
+          className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center mb-8 sm:mb-12"
         >
           <motion.button
             onClick={handleDownloadCV}
@@ -278,7 +278,7 @@ const Hero: React.FC = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.5, duration: 0.5 }}
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+          className="hidden sm:block absolute bottom-8 left-1/2 transform -translate-x-1/2"
         >
           <motion.div
             animate={{ y: [0, 10, 0] }}
